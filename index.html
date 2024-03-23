@@ -5,13 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - BriefMe</title>
+    <script type="module">
+        import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.16.1';
+    </script>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3 navbar-light" id="mainNav">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span>BriefMe</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand text-center d-flex align-items-center" href="/"><span class="text-center">BriefMe</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"></li>
@@ -27,8 +30,8 @@
                         <h1 class="display-4 fw-bold mb-5">Get To The Point</h1>
                         <p class="fs-5 text-muted mb-5">Enter Your Text Below</p>
                         <form class="d-flex justify-content-center flex-wrap" method="post" data-bs-theme="light">
-                            <div class="shadow-lg mb-3"><input class="form-control" type="text" name="email" placeholder="Your Email"></div>
-                            <div class="shadow-lg mb-3"><button class="btn btn-primary" type="submit">BriefIt</button></div>
+                            <div class="shadow-lg mb-3"><input class="form-control form-control-lg" type="text" name="entertext" placeholder="Enter Your Text Here"></div>
+                            <div class="shadow-lg mb-3"><button class="btn btn-primary btn-lg" type="submit">BriefIt</button></div>
                         </form>
                     </div>
                 </div>
@@ -39,8 +42,8 @@
         </div>
     </header>
     <section>
-        <div class="container py-4 py-xl-5">
-            <div><textarea></textarea></div>
+        <div class="container text-center py-4 py-xl-5">
+            <div><textarea class="form-control-lg" name="output"></textarea></div>
         </div>
     </section>
     <section></section>
