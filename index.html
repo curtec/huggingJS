@@ -5,35 +5,43 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - BriefMe</title>
+    <meta name="description" content="BriefMe is a web application that summarizes text.">
+
     <script type="module">
         import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.16.1';
+
+        window.pipeline = pipeline;
     </script>
+
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3 navbar-light" id="mainNav">
-        <div class="container"><a class="navbar-brand text-center d-flex align-items-center" href="/"><span class="text-center">BriefMe</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"></li>
-                </ul>
-            </div>
+
+        <div class="container"><h1 class="text-center">BriefMe</h1>
+
         </div>
-    </nav>
+
+
     <header class="pt-5">
         <div class="container pt-4 pt-xl-5">
             <div class="row pt-5">
                 <div class="col-md-8 text-center text-md-start mx-auto">
+                    <div class="container text-center">
+                        <img src="assets\img\illustrations\briefMe.png" alt="Image" class="img-fluid">
+                    </div>
                     <div class="text-center">
                         <h1 class="display-4 fw-bold mb-5">Get To The Point</h1>
+
                         <p class="fs-5 text-muted mb-5">Enter Your Text Below</p>
-                        <form class="d-flex justify-content-center flex-wrap" method="post" data-bs-theme="light">
-                            <div class="shadow-lg mb-3"><input class="form-control form-control-lg" type="text" name="entertext" placeholder="Enter Your Text Here"></div>
-                            <div class="shadow-lg mb-3"><button class="btn btn-primary btn-lg" type="submit">BriefIt</button></div>
-                        </form>
+                        <textarea class="form-control flex-grow-1 mb-2" id="summarisationText" rows="6"
+                        style="margin-right: 15px; margin-left: 15px;"></textarea>
+                        <button id="summariseButton" class="btn btn-primary" onclick="summariseText()">Summarise</button>
                     </div>
+                    <textarea class="form-control flex-grow-1 mb-2" id="summarisationOutputArea" rows="6"
+                    style="margin-right: 15px; margin-left: 15px;"></textarea>
+
                 </div>
                 <div class="col-12 col-lg-10 mx-auto">
                     <div class="text-center position-relative"></div>
@@ -42,9 +50,7 @@
         </div>
     </header>
     <section>
-        <div class="container text-center py-4 py-xl-5">
-            <div><textarea class="form-control-lg" name="output"></textarea></div>
-        </div>
+        
     </section>
     <section></section>
     <section></section>
@@ -53,31 +59,43 @@
         <div class="container py-4 py-lg-5">
             <div class="row row-cols-2 row-cols-md-4">
                 <div class="col-12 col-md-3">
-                    <div class="fw-bold d-flex align-items-center mb-2"><span>BriefMe</span></div>
-                    <p class="text-muted">Sem eleifend donec molestie, integer quisque orci aliquam.</p>
+                    <div class="fw-bold d-flex align-items-center mb-2"><span>John</span></div>
+                    <ul class="list-unstyled">
+                        <li>Team Leader</li>
+                        <li>Development Environment Specification</li>
+                        <li>Back-end testing & Hosting</li>
+                    </ul>
                 </div>
                 <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">Services</h3>
+                    <h3 class="fs-6 fw-bold">Rabia</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#">Web design</a></li>
+                        <li>Back-end testing & Hosting</li>
                         <li><a href="#">Development</a></li>
                         <li><a href="#">Hosting</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">About</h3>
+                    <h3 class="fs-6 fw-bold">Sakitha</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#">Company</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Legacy</a></li>
+                        <li>REST API overview</li>
+                        <li>Front-end UI design</li>
+                        <li>Front-end implementation & testing</li>
                     </ul>
                 </div>
                 <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">Careers</h3>
+                    <h3 class="fs-6 fw-bold">Sonam</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#">Job openings</a></li>
-                        <li><a href="#">Employee success</a></li>
-                        <li><a href="#">Benefits</a></li>
+                        <li>REST API overview</li>
+                        <li>Front-end UI design</li>
+                        <li>Front-end implementation & testing</li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
+                    <h3 class="fs-6 fw-bold">Adam</h3>
+                    <ul class="list-unstyled">
+                        <li>Hugging Face pipeline/Langchain overview</li>
+                        <li>Transformer Selection Rationale</li>
+                        <li>Lessons learnt/future directions</li>
                     </ul>
                 </div>
             </div>
@@ -100,6 +118,47 @@
     </footer>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/startup-modern.js"></script>
+
+    <script>
+
+        let generator;
+
+        // Initialize the sentiment analysis model
+        async function initializeModel() {
+            generator = await pipeline('summarization', 'Xenova/distilbart-cnn-6-6');
+        }
+
+        async function summariseText() {
+
+            // Reference to the textarea and the button
+            const textArea = document.getElementById("summarisationText");
+            const summarizeButton = document.getElementById("summariseButton");
+
+            const textAreaValue = textArea.value.trim();
+
+            document.getElementById("summarisationOutputArea").innerText = ""
+
+            // Disable textarea and button, and set cursor to hourglass
+            textArea.disabled = true;
+            summarizeButton.disabled = true;
+            document.body.style.cursor = "wait";
+
+            // Ensure the DOM updates before making the API call
+            setTimeout(async () => {
+                let summary = await generator(textAreaValue, { max_new_tokens: 75 });
+
+                document.getElementById("summarisationOutputArea").innerText = JSON.stringify(summary, null, 2);
+
+                // Re-enable textarea and button, and reset cursor
+                textArea.disabled = false;
+                summarizeButton.disabled = false;
+                document.body.style.cursor = "default";
+            }, 10);
+        }
+
+        // Initialize the model after the DOM is completely loaded
+        window.addEventListener("DOMContentLoaded", initializeModel);
+    </script>
 </body>
 
 </html>
