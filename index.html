@@ -6,21 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - BriefMe</title>
     <meta name="description" content="BriefMe is a web application that summarizes text.">
-
+    const HF_ACCESS_TOKEN = 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
     <script type="module">
         import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.16.1';
-
         window.pipeline = pipeline;
     </script>
-
+    
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
 </head>
 
 <body>
-
         <div class="container"><h1 class="text-center">BriefMe</h1>
-
+        
         </div>
 
 
@@ -123,14 +121,12 @@
 
         let generator;
 
-        // Initialize the sentiment analysis model
         async function initializeModel() {
             generator = await pipeline('summarization', 'Xenova/distilbart-cnn-6-6');
         }
 
         async function summariseText() {
 
-            // Reference to the textarea and the button
             const textArea = document.getElementById("summarisationText");
             const summarizeButton = document.getElementById("summariseButton");
 
@@ -138,25 +134,21 @@
 
             document.getElementById("summarisationOutputArea").innerText = ""
 
-            // Disable textarea and button, and set cursor to hourglass
             textArea.disabled = true;
             summarizeButton.disabled = true;
             document.body.style.cursor = "wait";
 
-            // Ensure the DOM updates before making the API call
             setTimeout(async () => {
-                let summary = await generator(textAreaValue, { max_new_tokens: 75 });
+                let summary = await generator(textAreaValue, { max_new_tokens: 100 });
 
                 document.getElementById("summarisationOutputArea").innerText = JSON.stringify(summary, null, 2);
 
-                // Re-enable textarea and button, and reset cursor
                 textArea.disabled = false;
                 summarizeButton.disabled = false;
                 document.body.style.cursor = "default";
             }, 10);
         }
 
-        // Initialize the model after the DOM is completely loaded
         window.addEventListener("DOMContentLoaded", initializeModel);
     </script>
 </body>
